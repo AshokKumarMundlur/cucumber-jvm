@@ -75,14 +75,14 @@ public class ScenarioImpl implements Scenario {
     @Override
     public void embed(byte[] data, String mimeType) {
         if (bus != null) {
-            bus.send(new EmbedEvent(bus.getTime(), data, mimeType));
+            bus.send(new EmbedEvent(bus.currentTime(), data, mimeType));
         }
     }
 
     @Override
     public void write(String text) {
         if (bus != null) {
-            bus.send(new WriteEvent(bus.getTime(), text));
+            bus.send(new WriteEvent(bus.currentTime(), text));
         }
     }
 

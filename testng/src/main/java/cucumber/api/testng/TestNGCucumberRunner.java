@@ -69,7 +69,7 @@ public class TestNGCucumberRunner {
     }
 
     public void finish() {
-        runtime.getEventBus().send(new TestRunFinished(runtime.getEventBus().getTime()));
+        runtime.getEventBus().send(new TestRunFinished(runtime.getEventBus().finishTime()));
         runtime.printSummary();
     }
 

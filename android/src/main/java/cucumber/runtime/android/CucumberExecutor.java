@@ -111,7 +111,7 @@ public class CucumberExecutor {
             runtime.getRunner().runPickle(pickleEvent);
         }
 
-        runtime.getEventBus().send(new TestRunFinished(runtime.getEventBus().getTime()));
+        runtime.getEventBus().send(new TestRunFinished(runtime.getEventBus().finishTime()));
     }
 
     /**

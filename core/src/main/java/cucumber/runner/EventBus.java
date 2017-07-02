@@ -17,8 +17,16 @@ public class EventBus implements EventPublisher {
         this.stopWatch = stopWatch;
     }
 
-    public Long getTime() {
-        return stopWatch.time();
+    public Long startTime() {
+        return stopWatch.startTime();
+    }
+
+    public Long finishTime() {
+        return stopWatch.finishTime();
+    }
+
+    public Long currentTime() {
+        return stopWatch.currentTime();
     }
 
     public void send(Event event) {

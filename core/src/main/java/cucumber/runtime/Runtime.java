@@ -148,7 +148,7 @@ public class Runtime {
             runFeature(cucumberFeature);
         }
 
-        bus.send(new TestRunFinished(bus.getTime()));
+        bus.send(new TestRunFinished(bus.finishTime()));
         printSummary();
     }
 
