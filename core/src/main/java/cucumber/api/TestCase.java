@@ -21,7 +21,7 @@ public class TestCase {
 
     public void run(EventBus bus) {
         boolean skipNextStep = false;
-        Long startTime = bus.startTime();
+        Long startTime = bus.getTime();
         bus.send(new TestCaseStarted(startTime, this));
         ScenarioImpl scenarioResult = new ScenarioImpl(bus, pickleEvent);
         for (TestStep step : testSteps) {
@@ -31,7 +31,7 @@ public class TestCase {
             }
             scenarioResult.add(stepResult);
         }
-        Long stopTime = bus.finishTime();
+        Long stopTime = bus.getTime();
         bus.send(new TestCaseFinished(stopTime, this, new Result(scenarioResult.getStatus(), stopTime - startTime, scenarioResult.getError())));
     }
 

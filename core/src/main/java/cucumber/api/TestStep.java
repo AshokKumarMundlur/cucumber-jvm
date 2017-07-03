@@ -52,7 +52,7 @@ public abstract class TestStep {
     public abstract HookType getHookType();
 
     public Result run(EventBus bus, String language, Scenario scenario, boolean skipSteps) {
-        Long startTime = bus.startTime();
+        Long startTime = bus.getTime();
         bus.send(new TestStepStarted(startTime, this));
         Result.Type status;
         Throwable error = null;
@@ -62,7 +62,7 @@ public abstract class TestStep {
             error = t;
             status = mapThrowableToStatus(t);
         }
-        Long stopTime = bus.finishTime();
+        Long stopTime = bus.getTime();
         Result result = mapStatusToResult(status, error, stopTime - startTime);
         bus.send(new TestStepFinished(stopTime, this, result));
         return result;

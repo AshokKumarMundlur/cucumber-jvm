@@ -2,7 +2,6 @@ package cucumber.runner;
 
 import static org.junit.Assert.assertNull;
 
-import cucumber.runner.TimeService;
 import org.junit.Test;
 
 public class TimeServiceTest {
@@ -37,9 +36,9 @@ public class TimeServiceTest {
         @Override
         public void run() {
             try {
-                stopWatch.currentTime();
+                stopWatch.time();
                 Thread.sleep(timeoutMillis);
-                stopWatch.currentTime();
+                stopWatch.time();
             } catch (NullPointerException e) {
                 exception = e;
             } catch (InterruptedException e) {
